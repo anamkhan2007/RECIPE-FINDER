@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balochistan Cuisine</title>
+  <link rel="stylesheet" href="balochistan.css" />
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+      <span>PBTC</span> Recipe Finder
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+      <a href="INDEX.HTML">Home</a>
+      <a href="about.html">About</a>
+      <a href="signup.html">Sign Up</a>
+
+      <div class="dropdown" onclick="toggleDropdown(event)">
+        <a href="#">Provinces Cuisine ▾</a>
+        <div class="dropdown-content">
+          <a href="punjab.html">Punjab</a>
+          <a href="sindh.html">Sindh</a>
+          <a href="balochistan.html">Balochistan</a>
+          <a href="kpk.html">KPK</a>
+        </div>
+      </div>
+
+     
+
+    </nav>
+  </header>
+  <section class="cuisine-section">
+    <h1>Balochistan Cuisine</h1>
+    <p class="subtitle">Traditional nomadic and coastal flavors with simple yet delicious preparations.</p>
+ <div class="filters">
+      <input type="text" id="searchBox" placeholder="Search recipes..." oninput="searchRecipes()">
+      <button onclick="filterRecipes('all')">All</button>
+      <button onclick="filterRecipes('easy')">Easy</button>
+      <button onclick="filterRecipes('medium')">Medium</button>
+      <button onclick="filterRecipes('hard')">Hard</button>
+    </div>
+    <div class="card-container">
+      <!-- Sajji -->
+      <a href="sajjirecipe.html"><div class="recipe-card hard">
+        <img src="sajji.jpg" alt="sajjirecipe" style="width: 90%; height: 25%;">
+        <h3>Sajji</h3>
+        <p>Whole lamb or chicken roasted with traditional spices</p>
+        <div class="info">
+          <span>⏱ 180 mins</span>
+          <span>👥 Serves 8-10</span>
+          <span class="difficulty">Hard</span>
+        </div>
+        <p class="note">Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div></a>
+
+      <!-- Khaddi Kebab -->
+      <a href="khaddikebab.html"><div class="recipe-card medium">
+        <img src="khaddikebab.jpg" alt="khaddikebab " style="width: 90%; height: 25%;">
+        <h3>Khaddi Kebab</h3>
+        <p>Minced meat kebabs with aromatic herbs and spices</p>
+        <div class="info">
+          <span>⏱ 45 mins</span>
+          <span>👥 Serves 4-6</span>
+          <span class="difficulty">Medium</span>
+        </div>
+        <p class="note">Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div></a>
+
+      <!-- Balochi Pulao -->
+     <a href="balochipulao.html"> <div class="recipe-card medium">
+      <img src="balochipulao.jpg" alt="balochipulao" style="width: 90%; height: 25%;">
+        <h3>Balochi Pulao</h3>
+        <p>Fragrant rice dish with meat and traditional Balochi spices</p>
+        <div class="info">
+          <span>⏱ 75 mins</span>
+          <span>👥 Serves 6</span>
+          <span class="difficulty">Medium</span>
+        </div>
+        <p class="note">Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div>
+    </div></a>
+
+    <p class="coming-soon">More Recipes Coming Soon!</p>
+    <p class="coming-section">We're constantly adding new authentic sindhi cuisine recipes.Sign up to get notified when new recipes are added.</p>
+  </section>
+  <!-- Footer Section -->
+      <footer class="site-footer">
+
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h3>Traditional Cuisine Recipes</h3>
+            <p> Exploring the rich flavors and cultural heritage behind traditional cuisine recipes passed down through generations.
+               From time-honored cooking methods to authentic ingredients, these recipes celebrate the heart and soul of regional kitchens,
+                preserving the essence of home-cooked meals and the stories they carry.</p>
+            <div class="contact">
+              <span><i class="fas fa-envelope"></i> contact@PBTC recipefinder.org</span>
+              <span><i class="fas fa-phone"></i> +92 123 4567890</span>
+            </div>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section links footer-center">
+            <div>
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="INDEX.HTML">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="">Provinces</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section subscribe">
+            <h3>Stay Connected</h3>
+            <p>For More delicious Recipes</p>
+            <div class="subscribe-button">
+              <a href="signup.html" >Sign Up for Daily Update</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Pakistan’s Best Traditional Cuisine</p>
+        </div>
+      </footer>
+<script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
+    }
+
+    function toggleDropdown(event) {
+      const dropdown = event.currentTarget;
+      if (window.innerWidth <= 768) {
+        dropdown.classList.toggle('open');
+        event.stopPropagation();
+      }
+    }
+
+    // Close dropdown on outside click (mobile)
+    window.addEventListener("click", function () {
+      document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    });
+  </script>
+<script>
+    function filterRecipes(level) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (level === 'all' || card.dataset.level === level) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchRecipes() {
+      const input = document.getElementById('searchBox').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
