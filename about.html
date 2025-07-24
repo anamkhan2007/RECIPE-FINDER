@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBTC Recipe Finder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="footer.css">
+</head>
+<body>
+ <header >
+    <div class="logo">
+      <span>PBTC</span> Recipe Finder
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+      <a href="INDEX.HTML">Home</a>
+      <a href="about.html">About</a>
+      <a href="signup.html">Sign Up</a>
+
+      <div class="dropdown" onclick="toggleDropdown(event)">
+        <a href="#">Provinces Cuisine ▾</a>
+        <div class="dropdown-content">
+          <a href="punjab.html">Punjab</a>
+          <a href="sindh.html">Sindh</a>
+          <a href="balochistan.html">Balochistan</a>
+          <a href="kpk.html">KPK</a>
+        </div>
+      </div>
+
+     
+    </nav>
+  </header>
+
+ 
+
+  <!-- 🔵 English Section -->
+  <section id="english">
+    <h1>About PBTC Recipe Finder</h1>
+    <p class="subtitle">Preserving and sharing the rich culinary heritage of Pakistan through authentic traditional recipes</p>
+
+    <div class="info-cards">
+      <div class="card">
+        <div class="icon">💙</div>
+        <h3>Our Passion</h3>
+        <p>We’re passionate about preserving the authentic flavors and cooking traditions of Pakistan.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>Our Community</h3>
+        <p>Building a community of food lovers who appreciate traditional Pakistani cuisine.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Our Mission</h3>
+        <p>To make authentic Pakistani recipes accessible to people around the world.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white " style="border: 1px solid #a59898; margin-top: 110px;border-radius: 10px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="mb-4 fw-bold text-dark">Our Story</h2>
+        <p class="text-secondary fs-5 mb-3" >
+          Pakistan's Best Traditional Cuisine (PBTC) Recipe Finder was born from a deep love for the diverse and rich culinary traditions that exist across Pakistan’s four provinces. Each region – Sindh, Punjab, Balochistan, and Khyber Pakhtunkhwa – brings its own unique flavors, cooking techniques, and traditional dishes that have been passed down through generations.
+        </p>
+        <p class="text-secondary fs-5 mb-3">
+          Our platform serves as a digital cookbook and cultural bridge, connecting food enthusiasts with authentic recipes that tell the story of Pakistan’s diverse heritage. From the spicy curries of Sindh to the robust flavors of Punjab, from the nomadic cuisine of Balochistan to the aromatic dishes of KPK, we celebrate them all.
+        </p>
+        <p class="text-secondary fs-5">
+          Whether you're a Pakistani living abroad looking to reconnect with your roots, or someone curious about exploring new flavors, PBTC Recipe Finder is your gateway to authentic Pakistani cuisine.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer Section -->
+      <footer class="site-footer">
+
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h3>Traditional Cuisine Recipes</h3>
+            <p> Exploring the rich flavors and cultural heritage behind traditional cuisine recipes passed down through generations.
+               From time-honored cooking methods to authentic ingredients, these recipes celebrate the heart and soul of regional kitchens,
+                preserving the essence of home-cooked meals and the stories they carry.</p>
+            <div class="contact">
+              <span><i class="fas fa-envelope"></i> contact@PBTC recipefinder.org</span>
+              <span><i class="fas fa-phone"></i> +92 123 4567890</span>
+            </div>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section links footer-center">
+            <div>
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="INDEX.HTML">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="">Provinces</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section subscribe">
+            <h3>Stay Connected</h3>
+            <p>For More delicious Recipes</p>
+            <div class="subscribe-button">
+              <a href="signup.html" >Sign Up for Daily Update</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Pakistan’s Best Traditional Cuisine</p>
+        </div>
+      </footer>
+<script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
+    }
+
+    function toggleDropdown(event) {
+      const dropdown = event.currentTarget;
+      if (window.innerWidth <= 768) {
+        dropdown.classList.toggle('open');
+        event.stopPropagation();
+      }
+    }
+
+    // Close dropdown on outside click (mobile)
+    window.addEventListener("click", function () {
+      document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    });
+  </script>
+
+</body>
+</html>

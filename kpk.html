@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPK Cuisine</title>
+  <link rel="stylesheet" href="kpk.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span>PBTC</span> Recipe Finder
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+      <a href="INDEX.HTML">Home</a>
+      <a href="about.html">About</a>
+      <a href="signup.html">Sign Up</a>
+
+      <div class="dropdown" onclick="toggleDropdown(event)">
+        <a href="#">Provinces Cuisine ▾</a>
+        <div class="dropdown-content">
+          <a href="punjab.html">Punjab</a>
+          <a href="sindh.html">Sindh</a>
+          <a href="balochistan.html">Balochistan</a>
+          <a href="kpk.html">KPK</a>
+        </div>
+      </div>
+
+      
+    </nav>
+  </header>
+  <section class="cuisine-section">
+    <h1 class="main-heading">KPK Cuisine</h1>
+    <p class="sub-heading">Bold and aromatic dishes from Khyber Pakhtunkhwa with rich meat preparations.</p>
+
+    <div class="filters">
+      <input type="text" id="searchBox" placeholder="Search recipes..." oninput="searchRecipes()">
+      <button onclick="filterRecipes('all')">All</button>
+      <button onclick="filterRecipes('easy')">Easy</button>
+      <button onclick="filterRecipes('medium')">Medium</button>
+      <button onclick="filterRecipes('hard')">Hard</button>
+    </div>
+
+    <a href="ChapliKebab.html"><div class="recipe-cards" id="recipeCards">
+      <div class="card" data-level="easy">
+        <img src="chapli kebab.webp" alt="chaplikebab" style="width: 90%; height: 25%;">
+        <h2>Chapli Kebab</h2>
+        <p>Spiced ground meat patties with traditional Peshawari flavors</p>
+        <div class="info">
+          <span>⏱️ 30 mins</span>
+          <span>👥 Serves 4</span>
+          <span class="level easy">Easy</span>
+        </div>
+        <p>Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div>
+    </a>
+
+     <a href="PeshawariKarahi.html"> <div class="card" data-level="medium">
+      <img src="peshawri karahi.jpg" alt="peshawarikarahi" style="width: 90%; height: 25%;">
+        <h2>Peshawari Karahi</h2>
+        <p>Tender meat cooked in a traditional wok with tomatoes and spices</p>
+        <div class="info">
+          <span>⏱️ 60 mins</span>
+          <span>👥 Serves 4-6</span>
+          <span class="level medium">Medium</span>
+        </div>
+        <p>Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div></a>
+
+     <a href="kabulipulao.html"> <div class="card" data-level="hard">
+      <img src="kabuli pulao.webp" alt="labulipulao" style="width: 90%; height: 25%;">
+        <h2>Kabuli Pulao</h2>
+        <p>Aromatic rice with meat, carrots, and raisins</p>
+        <div class="info">
+          <span>⏱️ 90 mins</span>
+          <span>👥 Serves 6-8</span>
+          <span class="level hard">Hard</span>
+        </div>
+        <p>Click to view full recipe with ingredients and step-by-step instructions.</p>
+      </div></a>
+    </div>
+
+    <p class="coming-soon">More Recipes Coming Soon!</p>
+  </section>
+<!-- Footer Section -->
+      <footer class="site-footer">
+
+        <div class="footer-content">
+          <div class="footer-section about">
+            <h3>Traditional Cuisine Recipes</h3>
+            <p> Exploring the rich flavors and cultural heritage behind traditional cuisine recipes passed down through generations.
+               From time-honored cooking methods to authentic ingredients, these recipes celebrate the heart and soul of regional kitchens,
+                preserving the essence of home-cooked meals and the stories they carry.</p>
+            <div class="contact">
+              <span><i class="fas fa-envelope"></i> contact@PBTC recipefinder.org</span>
+              <span><i class="fas fa-phone"></i> +92 123 4567890</span>
+            </div>
+            <div class="socials">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section links footer-center">
+            <div>
+              <h3>Quick Links</h3>
+              <ul>
+                <li><a href="INDEX.HTML">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="signup.html">Sign Up</a></li>
+              <li><a href="">Provinces</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-section subscribe">
+            <h3>Stay Connected</h3>
+            <p>For More delicious Recipes</p>
+            <div class="subscribe-button">
+              <a href="signup.html" >Sign Up for Daily Update</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Pakistan’s Best Traditional Cuisine</p>
+        </div>
+      </footer>
+  <script>
+    function filterRecipes(level) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (level === 'all' || card.dataset.level === level) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchRecipes() {
+      const input = document.getElementById('searchBox').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const title = card.querySelector('h2').textContent.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

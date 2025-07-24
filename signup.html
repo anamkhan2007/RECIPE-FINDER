@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join PBTC Community</title>
+  <link rel="stylesheet" href="navbar.css">
+ <link rel="stylesheet" href="signup.css">
+ 
+</head>
+<body>
+ <header  >
+    <div class="logo">
+      <span>PBTC</span> Recipe Finder
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navbar">
+      <a href="INDEX.HTML">Home</a>
+      <a href="about.html">About</a>
+      <a href="signup.html">Sign Up</a>
+
+      <div class="dropdown" onclick="toggleDropdown(event)">
+        <a href="#">Provinces Cuisine ▾</a>
+        <div class="dropdown-content">
+          <a href="punjab.html">Punjab</a>
+          <a href="sindh.html">Sindh</a>
+          <a href="balochistan.html">Balochistan</a>
+          <a href="kpk.html">KPK</a>
+        </div>
+      </div>
+
+    
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form id="signupForm">
+      <h2>Join PBTC Community</h2>
+      <p>Create your account to save favorite recipes and get personalized recommendations</p>
+
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" required>
+
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" required>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="newsletter">
+        <label for="newsletter">Subscribe to our recipe newsletter</label>
+      </div>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="message" id="successMessage">
+      ✅ You are signed in!
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const message = document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Fade out form
+      form.classList.add("fade-out");
+
+      // After fade completes, hide form and show message
+      setTimeout(() => {
+        form.style.display = "none";
+        message.classList.add("show");
+      }, 500);
+    });
+  </script>
+  <script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
+    }
+
+    function toggleDropdown(event) {
+      const dropdown = event.currentTarget;
+      if (window.innerWidth <= 768) {
+        dropdown.classList.toggle('open');
+        event.stopPropagation();
+      }
+    }
+
+    // Close dropdown on outside click (mobile)
+    window.addEventListener("click", function () {
+      document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+    });
+  </script>
+
+</body>
+</html>
